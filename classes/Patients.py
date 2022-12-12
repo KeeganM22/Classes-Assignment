@@ -9,13 +9,11 @@ class patient:
         
     
     def formatPatientInfo(self):
-        ## makes new enterys on the txt file look like the pre existing ones
         self.joined = self.pid + "_" + self.Name + "_" + self.disease + "_" + self.gender + "_" + self.age
         
         return self.joined
         
     def enterPatientInfo(self):
-        ## process for entering in a new dr
         self.pid = input("Enter patient's ID: ")
         self.Name = input("Enter patient's name: ")
         self.disease = input("Enter patient's disease: ")
@@ -25,20 +23,17 @@ class patient:
         
             
     def addPatientToFile(self):
-        ## once done enter dr info, it will add it with this
-        with open("Project Data/files\patients.txt", "a") as f:
+        with open("classes/Project Data/files\patients.txt", "a") as f:
             f.write('\n')
-        with open("Project Data/files\patients.txt", "a") as f:
+        with open("classes/Project Data/files\patients.txt", "a") as f:
             f.write(self.joined)
 
     def readPatientsFile(self):
-        ## reads the dr info and fills it out by a list
-        self.patFile = open("Project Data/files\patients.txt").read().splitlines()
+        self.patFile = open("classes/Project Data/files\patients.txt").read().splitlines()
         
         return self.patFile
         
     def searchPatientById(self):
-        ## checks if the dr exists and reads the text file and outputs the given dr in one line by id
         search = input("search ID:")
         for x in self.patFile:
             if search in x[:4]:
@@ -46,7 +41,6 @@ class patient:
                 return self.result
 
     def searchPatientByName(self):
-        ## checks if the dr exists and reads the text file and outputs the given dr in one line by name
         search = input("Search Name:")
         for x in self.patFile:
             if search in x:
@@ -55,7 +49,6 @@ class patient:
             
 
     def displayPatientInfo(self):
-        ## input id of dr and it will put out all the dr's information on separate lines
         txt = "{pid:<10}{name:20}{disease:15}{gender:20}{age:20}"
         y = self.patFile[0]
         z = y.split("_")
@@ -76,7 +69,6 @@ class patient:
                 print(txt.format(pid=self.pid,name=self.Name,disease=self.disease,gender=self.gender,age=self.age))
         
     def editPatientInfo(self):
-        ## edits dr's info of the one they input their id as
         self.pid = input("Enter new ID: ")
         self.Name = input("Enter new name: ")
         self.disease = input("Enter new disease: ")
@@ -89,7 +81,6 @@ class patient:
                 self.patFile.remove(x)
 
     def displayPatientList(self):
-        ## genaral list of all the text 
         txt = "{pid:<10}{name:20}{disease:15}{gender:20}{age:20}"
         for x in self.patFile:
             y = x.split("_")
@@ -101,8 +92,7 @@ class patient:
             print(txt.format(pid=self.pid,name=self.Name,disease=self.disease,gender=self.gender,age=self.age))
 
     def writeListOfPatientsToFile(self):
-        ## rewrites the whole list
         self.patFile.append(self.joined)
-        with open("Project Data/files\patients.txt", "w") as f:
+        with open("classes/Project Data/files\patients.txt", "w") as f:
             f.write('\n'.join(self.patFile))
 
