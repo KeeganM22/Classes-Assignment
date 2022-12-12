@@ -13,16 +13,16 @@ class labs:
         return self.formated
         
     def readLabFile(self):
-        self.labFile = open("Project Data/files\laboratories.txt").read().splitlines()
+        self.labFile = open("classes/Project Data/files\laboratories.txt").read().splitlines()
         return self.labFile
     def addLabToFile(self):
-        with open("Project Data/files\laboratories.txt", "a") as f:
+        with open("classes/Project Data/files\laboratories.txt", "a") as f:
             f.write("\n")
-        with open("Project Data/files\laboratories.txt", "a") as f:
+        with open("classes/Project Data/files\laboratories.txt", "a") as f:
             f.write(self.formated)
 
     def writeListOflabsToFile(self):
-        with open("Project Data/files\laboratories.txt", "w") as f:
+        with open("classes/Project Data/files\laboratories.txt", "w") as f:
             f.write(self.labFile)
             
 
