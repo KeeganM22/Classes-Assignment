@@ -106,29 +106,3 @@ class patient:
         with open("Project Data/files\patients.txt", "w") as f:
             f.write('\n'.join(self.patFile))
 
-test = patient(22, "Keegan", "Diabeties", "Male", 19)
-inp = 1
-while int(inp) < 6:
-    print("Patient menu \n 1 - Display patient list \n 2 - Search for patient by ID \n 3 - Search for patient by name \n 4 - Add patient \n 5 - Edit patient info \n 6 - Back to the Main Menu")
-    inp = input()
-    if int(inp) == 1:
-        test.readPatientsFile()
-        test.displayPatientList()
-    elif int(inp) == 2:
-        test.readPatientsFile()
-        test.searchPatientById()
-        test.displayPatientInfo()
-    elif int(inp) == 3:
-        test.readPatientsFile()
-        test.searchPatientByName()
-        test.displayPatientInfo()
-    elif int(inp) == 4:
-        test.enterPatientInfo()
-        test.formatPatientInfo()
-        test.addPatientToFile()
-    elif int(inp) == 5:
-        test.readPatientsFile()
-        test.searchPatientById()
-        test.editPatientInfo()
-        test.formatPatientInfo()
-        test.writeListOfPatientsToFile()
