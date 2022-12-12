@@ -36,16 +36,3 @@ class labs:
             print(text.format(name=self.labName,cost=self.cost))
         
 
-lab = labs(1, 1)
-
-user = 1
-while user <3:
-    print("Labs menu \n 1 - Display labs list \n 2 - add lab \n 3 - back to main menu")
-    user = int(input())
-    if user == 1:
-        lab.readLabFile()
-        lab.displayLabs()
-    elif user == 2:
-        lab.enterLabInfo()
-        lab.formatLabInfo()
-        lab.addLabToFile()
