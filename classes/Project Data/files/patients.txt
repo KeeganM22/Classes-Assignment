@@ -3,3 +3,4 @@ id_Name_Disease_Gender_Age
 13_Janina_Cold_Female_23
 14_Alonna_Malaria_Female_45
 15_Ravi_Diabetes_Male_65
+90_Joe_Mamas_Male_19

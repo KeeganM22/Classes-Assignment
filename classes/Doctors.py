@@ -10,26 +10,19 @@ class doctors:
     
     def formatDrInfo(self):
         ## makes new enterys on the txt file look like the pre existing ones
-        self.joined = '_'.join(self.drInfo)
+        self.joined = self.ID + "_Dr. " + self.Name + "_" + self.workingTime + "_" + self.Specialization + "_" + self.Qualification + "_" + self.RoomNumber
         
         return self.joined
         
     def enterDrInfo(self):
         ## process for entering in a new dr
-        self.ID = input("Enter doctor's ID:")
-        self.drInfo.append(self.ID)
-        self.Name = input("Enter doctor's name:")
-        self.drInfo.append(self.Name)
-        self.Specialization = input("Enter specialization:")
-        self.drInfo.append(self.Specialization)
-        self.Qualification = input("Enter qualification:")
-        self.drInfo.append(self.Qualification)
-        self.workingTime = input("Enter working hours: (7am to 10pm)")
-        self.drInfo.append(self.workingTime)
-        self.RoomNumber = input("Enter room number:")
-        self.drInfo.append(self.RoomNumber)
+        self.ID = input("Enter doctor's ID: ")
+        self.Name = input("Enter doctor's name: ")
+        self.Specialization = input("Enter specialization: ")
+        self.Qualification = input("Enter qualification: ")
+        self.workingTime = input("Enter working hours: (7am to 10pm) ")
+        self.RoomNumber = input("Enter room number: ")
         
-        return self.drInfo
             
     def addDrToFile(self):
         ## once done enter dr info, it will add it with this
@@ -41,7 +34,7 @@ class doctors:
     def readDoctorsFile(self):
         ## reads the dr info and fills it out by a list
         self.drFile = open("Project Data/files\doctors.txt").read().splitlines()
-        print(self.drFile)
+        
         return self.drFile
         
     def searchDoctorById(self):
@@ -63,36 +56,61 @@ class doctors:
 
     def displayDoctorInfo(self):
         ## input id of dr and it will put out all the dr's information on separate lines
-        for x in [0]:
-            head = self.drFile[x]
-            print(head.replace("_", ":10 "))
-        print(self.result.replace("_", ":10 "))
+        txt = "{id:<10}{name:20}{time:15}{spec:20}{qual:20}{room:10}"
+        y = self.drFile[0]
+        z = y.split("_")
+        self.IDh = z[0]
+        self.Nameh = z[1]
+        self.workingTimeh = z[2]  
+        self.Specializationh = z[3]  
+        self.Qualificationh = z[4]  
+        self.RoomNumberh = z[5]
+        print(txt.format(id=self.IDh,name=self.Nameh,time=self.workingTimeh,spec=self.Specializationh,qual=self.Qualificationh,room=self.RoomNumberh))
+        for x in self.drFile:
+            if x == self.result:
+                y = x.split("_")
+                self.ID = y[0]
+                self.Name = y[1]
+                self.workingTime = y[2]  
+                self.Specialization = y[3]  
+                self.Qualification = y[4]  
+                self.RoomNumber = y[5]  
+                print(txt.format(id=self.ID,name=self.Name,time=self.workingTime,spec=self.Specialization,qual=self.Qualification,room=self.RoomNumber))
         
     def editDoctorInfo(self):
         ## edits dr's info of the one they input their id as
         self.ID = input("Enter new ID: ")
+        self.drInfo.append(self.ID)
         self.Name = input("Enter new name: ")
+        self.drInfo.append(self.Name)
         self.Specialization = input("Entert new specialization: ")
+        self.drInfo.append(self.Specialization)
         self.Qualification = input("Enter new qualifcation: ")
+        self.drInfo.append(self.Qualification)
         self.workingTime = input("Enter new working hours: (7am to 10pm) ")
+        self.drInfo.append(self.workingTime)
         self.RoomNumber = input("Enter new room number:")
+        self.drInfo.append(self.RoomNumber)
 
         for x in self.drFile:
             if self.result == x:
                 self.drFile.remove(x)
 
+            
         return self.drInfo
 
     def displayDoctorList(self):
         ## genaral list of all the text 
-        split = (x.replace("_", " ") for x in self.drFile)
-        for x in split:
-            print(x)
-            print("\n")
-        
-        
-        
-        
+        txt = "{id:<10}{name:20}{time:15}{spec:20}{qual:20}{room:10}"
+        for x in self.drFile:
+            y = x.split("_")
+            self.ID = y[0]
+            self.Name = y[1]
+            self.workingTime = y[2]  
+            self.Specialization = y[3]  
+            self.Qualification = y[4]  
+            self.RoomNumber = y[5]  
+            print(txt.format(id=self.ID,name=self.Name,time=self.workingTime,spec=self.Specialization,qual=self.Qualification,room=self.RoomNumber))
 
     def writeListOfDoctorsToFile(self):
         ## rewrites the whole list
@@ -143,7 +161,7 @@ test = doctors(12, "mclean", "EMT", "1 to 1", "PHD", 12)
 ##test.addDrToFile()
 
 ## testing print list remove comment to run
-test.readDoctorsFile()
+##test.readDoctorsFile()
 ##test.displayDoctorList()
 
 ## testing search for id, remove comment to run
@@ -156,4 +174,28 @@ test.readDoctorsFile()
 ##test.searchDoctorByName()
 ##test.displayDoctorInfo()
 
-
+inp = 1
+while int(inp) < 6:
+    print("doctors menu \n 1 - Display Doctors list \n 2 - Search for doctor by ID \n 3 - Search for doctor by name \n 4 - Add doctor \n 5 - Edit doctor info \n 6 - Back to the Main Menu")
+    inp = input()
+    if int(inp) == 1:
+        test.readDoctorsFile()
+        test.displayDoctorList()
+    elif int(inp) == 2:
+        test.readDoctorsFile()
+        test.searchDoctorById()
+        test.displayDoctorInfo()
+    elif int(inp) == 3:
+        test.readDoctorsFile()
+        test.searchDoctorByName()
+        test.displayDoctorInfo()
+    elif int(inp) == 4:
+        test.enterDrInfo()
+        test.formatDrInfo()
+        test.addDrToFile()
+    elif int(inp) == 5:
+        test.readDoctorsFile()
+        test.searchDoctorById()
+        test.editDoctorInfo()
+        test.formatDrInfo()
+        test.writeListOfDoctorsToFile()

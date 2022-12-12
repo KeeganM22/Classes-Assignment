@@ -3,4 +3,5 @@ id_name_specilist_timing_qualification_roomNb
 17_Dr.Amy_Surgeon_8pm-2am_BDM_8
 33_Dr.David_Artho_10am-4pm_MBBS,MS_40
 123_Dr. Ross_Headackes_8pm-10am_Mst_102
-66_Dr. Mike_Heart_9am-5pm_MS_21
+1_Dr. Mike_9am-10pm_Clowns_MD_100
+90_Dr. Joe_9am-10pm_EMT_PHD_999
