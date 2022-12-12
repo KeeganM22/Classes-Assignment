@@ -174,28 +174,3 @@ test = doctors(12, "mclean", "EMT", "1 to 1", "PHD", 12)
 ##test.searchDoctorByName()
 ##test.displayDoctorInfo()
 
-inp = 1
-while int(inp) < 6:
-    print("doctors menu \n 1 - Display Doctors list \n 2 - Search for doctor by ID \n 3 - Search for doctor by name \n 4 - Add doctor \n 5 - Edit doctor info \n 6 - Back to the Main Menu")
-    inp = input()
-    if int(inp) == 1:
-        test.readDoctorsFile()
-        test.displayDoctorList()
-    elif int(inp) == 2:
-        test.readDoctorsFile()
-        test.searchDoctorById()
-        test.displayDoctorInfo()
-    elif int(inp) == 3:
-        test.readDoctorsFile()
-        test.searchDoctorByName()
-        test.displayDoctorInfo()
-    elif int(inp) == 4:
-        test.enterDrInfo()
-        test.formatDrInfo()
-        test.addDrToFile()
-    elif int(inp) == 5:
-        test.readDoctorsFile()
-        test.searchDoctorById()
-        test.editDoctorInfo()
-        test.formatDrInfo()
-        test.writeListOfDoctorsToFile()
