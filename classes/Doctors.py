@@ -26,14 +26,14 @@ class doctors:
             
     def addDrToFile(self):
         ## once done enter dr info, it will add it with this
-        with open("Project Data/files\doctors.txt", "a") as f:
+        with open("classes/Project Data/files\doctors.txt", "a") as f:
             f.write('\n')
-        with open("Project Data/files\doctors.txt", "a") as f:
+        with open("classes/Project Data/files\doctors.txt", "a") as f:
             f.write(self.joined)
 
     def readDoctorsFile(self):
         ## reads the dr info and fills it out by a list
-        self.drFile = open("Project Data/files\doctors.txt").read().splitlines()
+        self.drFile = open("classes/Project Data/files\doctors.txt").read().splitlines()
         
         return self.drFile
         
@@ -115,7 +115,7 @@ class doctors:
     def writeListOfDoctorsToFile(self):
         ## rewrites the whole list
         self.drFile.append(self.joined)
-        with open("Project Data/files\doctors.txt", "w") as f:
+        with open("classes/Project Data/files\doctors.txt", "w") as f:
             f.write('\n'.join(self.drFile))
 
 ## first open the main menu for other classes
