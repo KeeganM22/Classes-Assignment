@@ -8,13 +8,13 @@ class facilities:
         return self.facilityName
 
     def writeListOffacilitiesToFile(self):
-        with open("Project Data/files/facilities.txt", "a") as f:
+        with open("classes/Project Data/files/facilities.txt", "a") as f:
             f.write("\n")
-        with open("Project Data/files/facilities.txt", "a") as f:
+        with open("classes/Project Data/files/facilities.txt", "a") as f:
             f.write(self.facilityName)
             
 
     def displayFacilities(self):
-        facilitiesList = open("Project Data/files/facilities.txt").read().splitlines()
+        facilitiesList = open("classes/Project Data/files/facilities.txt").read().splitlines()
         for x in facilitiesList:
             print(x)
